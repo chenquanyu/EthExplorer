@@ -1,0 +1,40 @@
+plugins {
+    id 'org.springframework.boot' version '2.5.4'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'com.onchain'
+sourceCompatibility = '1.8'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+//    implementation('com.github.pagehelper:pagehelper-spring-boot-starter:1.2.5')
+    implementation('org.springframework.boot:spring-boot-starter-log4j2')
+    implementation('com.alibaba:fastjson:1.2.24')
+    implementation('org.web3j:core:4.0.3')
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
+    runtimeOnly('mysql:mysql-connector-java')
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+configurations {
+    all*.exclude module: 'spring-boot-starter-logging'
+}
+
+test {
+    useJUnitPlatform()
+}

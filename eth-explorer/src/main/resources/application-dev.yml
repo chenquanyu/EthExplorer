@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: ${MYSQL_URL:jdbc:mysql://127.0.0.1:3306/eth_explorer?characterEncoding=utf-8&allowMultiQueries=true&rewriteBatchedStatements=true}
+    username: ${MYSQL_USERNAME:root}
+    password: ${MYSQL_PASSWORD:root}
+
+eth:
+  contract:
+    router: ${CONTRACT_HASH:b1c2a9fe60a5dfa84359965e6a3a4487b9828238}
+    walletpath: ${WALLET_PATH:wallet/wallet.dat}
+    password: ${WALLET_PASSWORD:123456}
+  node:
+    restUrl: ${NODE_0_URL:http://172.168.3.66:20334}
